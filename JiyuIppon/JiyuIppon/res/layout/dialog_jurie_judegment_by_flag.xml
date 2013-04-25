@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/background">
+    
+    <TextView 
+        style="@style/TextBig"
+        android:text="@string/judegment"
+        />
+    
+    
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent">
+        
+        <Button 
+            android:id="@+id/btAkaWins"
+            android:background="@drawable/red_btn"
+            style="@style/TextNormal"
+            android:text="@string/akaTitle"
+            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"/>
+        
+        <Button 
+            android:id="@+id/btshiroWins"
+            android:background="@drawable/black_btn"
+            style="@style/TextNormal"
+            android:text="@string/shiroTitle"
+            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"/>
+        
+        
+        
+    </LinearLayout>
+    
+    <Button 
+            android:id="@+id/btHikewake"
+            android:background="@drawable/blue_btn"
+            style="@style/TextNormal"
+            android:text="@string/hikewake"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"/>
+    
+
+</LinearLayout>

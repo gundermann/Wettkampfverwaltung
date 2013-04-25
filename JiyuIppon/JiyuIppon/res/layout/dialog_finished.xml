@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/background">
+    
+
+    <TextView
+        android:id="@+id/winner"
+        android:text="@string/winner"
+        style="@style/TextBlack"
+        />
+    
+    <Button 
+        android:id="@+id/nextMatch"
+        style="@style/TextNormal"
+        android:text="@string/nextMatch"
+        android:background="@drawable/blue_btn"/>
+    
+</LinearLayout>

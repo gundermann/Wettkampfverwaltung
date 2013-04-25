@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">JiyuIppon</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="shobuIppon">Shobu-Ippon</string>
+    <string name="scoreAka">0</string>
+    <string name="scoreShiro">0</string>
+    <string name="shiro"></string>
+    <string name="aka"></string>
+    <string name="jogaiShiro">Jogai: 0</string>
+    <string name="jogaiAka">Jogai: 0</string>
+    <string name="atenaiShiro">Atenai: 0</string>
+    <string name="atenaiAka">Atenai: 0</string>
+    <string name="muobiShiro">Muobi: 0</string>
+    <string name="muobiAka">Muobi: 0</string>
+    <string name="startStop">Start</string>
+    <string name="clockStart">00:00</string>
+    <string name="akaTitle">Aka</string>
+	<string name="shiroTitle">Shiro</string>
+	<string name="compFirstname">Vorname:</string>
+    <string name="compLastname">Nachname:</string>
+    <string name="startMatch">Starten</string>
+    <string name="judegment">Kampfrichterentscheidung</string>
+    <string name="hikewake">Hikewake</string>
+    <string name="winner"></string>
+    <string name="nextMatch">Nächster Kampf</string>	
+	
+</resources>
