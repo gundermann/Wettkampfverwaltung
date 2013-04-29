@@ -37,12 +37,14 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 		super.onCreate(savedInstanceState);
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		this.setContentView(R.layout.activity_jiyu_ippon);
-		
+
 		updateLayout();
 		
 		if(match == null){
 			openDialogToSetupCompetitors();
 		}
+
+		updateStrings();
 		
 		getBtStart().setOnClickListener(new OnClickListener() {
 			
@@ -134,6 +136,11 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 				});
 	}
 	
+	private void updateStrings() {
+		String.format(getString(R.string.aka), this.match.getAka().toString());
+		String.format(getString(R.string.shiro), this.match.getShiro().toString());
+	}
+
 	@SuppressWarnings("deprecation")
 	private void updateLayout() {
 		Display display = getWindowManager().getDefaultDisplay();

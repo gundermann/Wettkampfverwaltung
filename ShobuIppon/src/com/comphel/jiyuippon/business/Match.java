@@ -148,5 +148,14 @@ public class Match extends Thread{
 		aka.clearAllJudgements();
 		shiro.clearAllJudgements();
 	}
+
+	public KumiteCompetitor getAka() {
+		return aka;
+	}
+
+	public KumiteCompetitor getShiro() {
+		return shiro;
+	}
+	
 	
 }

@@ -40,7 +40,9 @@
         <TextView 
         android:id="@+id/tvAka"
         android:text="@string/aka"
-        style="@style/TextBlack"/>
+        style="@style/TextBlack"
+        android:gravity="left"
+        android:layout_width="fill_parent"/>
         
         <LinearLayout 
             android:layout_height="fill_parent"
@@ -104,7 +106,9 @@
         <TextView 
         android:id="@+id/tvshiro"
         android:text="@string/shiro"
-        style="@style/TextBlack"/>
+        style="@style/TextBlack"
+        android:gravity="right"
+        android:layout_width="fill_parent"/>
             
         <LinearLayout 
             android:layout_height="fill_parent"
