@@ -27,6 +27,8 @@ public class Config {
 	
 	private int atenaiToLose;
 	
+	private String configFile = "/sdcrad/Comphel/ShobuIppon/config.xml";
+	
 	public long getTimeleft() {
 		return timeleft;
 	}
@@ -69,10 +71,10 @@ public class Config {
 	
 	public void update(boolean isFinal){
 		 try {
-				File fXmlFile = new File("/config.xml");
+				File fXmlFile = new File(configFile);
 				if(!fXmlFile.exists()){
 					createConfig();
-					fXmlFile = new File("/config.xml");
+					fXmlFile = new File(configFile);
 				}
 				
 				DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -161,7 +163,7 @@ public class Config {
 				TransformerFactory transformerFactory = TransformerFactory.newInstance();
 				Transformer transformer = transformerFactory.newTransformer();
 				DOMSource source = new DOMSource(doc);
-				StreamResult result = new StreamResult(new File("/config.xml"));
+				StreamResult result = new StreamResult(new File(configFile));
 		 
 				transformer.transform(source, result);
 			  } catch (ParserConfigurationException pce) {
