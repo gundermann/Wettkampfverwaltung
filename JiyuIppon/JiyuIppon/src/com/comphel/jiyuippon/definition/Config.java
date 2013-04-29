@@ -70,8 +70,10 @@ public class Config {
 	public void update(boolean isFinal){
 		 try {
 				File fXmlFile = new File("/config.xml");
-				if(!fXmlFile.exists())
+				if(!fXmlFile.exists()){
 					createConfig();
+					fXmlFile = new File("/config.xml");
+				}
 				
 				DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 				DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -91,6 +93,7 @@ public class Config {
 			    } catch (Exception e) {
 				e.printStackTrace();
 			    }
+		 
 	}
 
 	private void readElement(Element nNode) {
