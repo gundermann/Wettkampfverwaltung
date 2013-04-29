@@ -18,7 +18,7 @@
         />
     
     <Button 
-        android:id="@+id/startStopButton"
+        android:id="@+id/buttonStartStop"
          android:text="@string/startStop"
          android:background="@drawable/blue_btn"
         style="@style/TextNormal"
@@ -48,6 +48,7 @@
             android:orientation="horizontal">
             
             <LinearLayout 
+                android:id="@+id/layoutAkaJudging"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:orientation="vertical">
@@ -73,10 +74,12 @@
             </LinearLayout>
             
              <LinearLayout 
+                 android:id="@+id/layoutAkaScore"
             android:layout_height="fill_parent"
             android:layout_width="fill_parent"
             android:orientation="vertical">
             
+                 
                  
                 <Button 
                     android:id="@+id/ButtonScoreAka"
@@ -110,6 +113,7 @@
             
             
              <LinearLayout 
+                 android:id="@+id/layoutShiroScore"
             android:layout_height="fill_parent"
             android:layout_width="fill_parent"
             android:orientation="vertical">
@@ -127,6 +131,7 @@
             
              
             <LinearLayout 
+                android:id="@+id/layoutShiroJudging"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:orientation="vertical">

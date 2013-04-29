@@ -15,5 +15,9 @@ public class KumiteCompetitor extends Competitor{
 		return judgement;
 	}
 
+	public void clearAllJudgements() {
+		judgement.clear();
+	}
+
 	
 }

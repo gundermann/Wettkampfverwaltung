@@ -13,7 +13,7 @@
         />
     
     <Button 
-        android:id="@+id/nextMatch"
+        android:id="@+id/buttonNextMatch"
         style="@style/TextNormal"
         android:text="@string/nextMatch"
         android:background="@drawable/blue_btn"/>

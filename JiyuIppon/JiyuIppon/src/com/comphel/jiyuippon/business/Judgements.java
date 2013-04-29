@@ -79,4 +79,11 @@ public class Judgements {
 	public void setHansuko(boolean hansuko) {
 		this.hansuko = hansuko;
 	}
+
+	public void clear() {
+		atenai = null;
+		jogai = null;
+		score = 0;
+		muobi = null;
+	}
 }
