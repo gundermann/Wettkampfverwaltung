@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="app_name">JiyuIppon</string>
     <string name="dummy_button">Dummy Button</string>
@@ -26,5 +26,7 @@
     <string name="hikewake">Hikewake</string>
     <string name="winner"></string>
     <string name="nextMatch">Nächster Kampf</string>	
+    <string name="chronometer_initial_format">Initial format:<xliff:g id="initial-format">%</xliff:g></string>
+	
 	
 </resources>

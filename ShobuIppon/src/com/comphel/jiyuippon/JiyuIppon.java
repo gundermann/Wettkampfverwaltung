@@ -44,8 +44,6 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 			openDialogToSetupCompetitors();
 		}
 
-		updateStrings();
-		
 		getBtStart().setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -137,8 +135,8 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 	}
 	
 	private void updateStrings() {
-		String.format(getString(R.string.aka), this.match.getAka().toString());
-		String.format(getString(R.string.shiro), this.match.getShiro().toString());
+		((TextView) findViewById(R.id.tvAka)).setText( this.match.getAka().toString());
+		((TextView) findViewById(R.id.tvshiro)).setText( this.match.getShiro().toString());
 	}
 
 	@SuppressWarnings("deprecation")
@@ -232,6 +230,9 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 				KumiteCompetitor shiro = createNewKumiteCompetitor(((EditText) dialog.findViewById(R.id.shiroFirstname)).getText().toString(), ((EditText) dialog.findViewById(R.id.shiroLastname)).getText().toString());
 				
 				createNewMatch(aka, shiro);
+				
+				updateStrings();
+				
 				dialog.cancel();
 			}
 			
@@ -249,6 +250,9 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 	}
 
 	private void setDialog(AlertDialog createdDialog) {
+		if(this.dialog != null){
+			dialog.dismiss();
+		}
 		this.dialog = createdDialog;
 	}
 

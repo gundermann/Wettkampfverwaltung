@@ -76,6 +76,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int app_name=0x7f050000;
         public static final int atenaiAka=0x7f05000b;
         public static final int atenaiShiro=0x7f05000a;
+        public static final int chronometer_initial_format=0x7f050019;
         public static final int clockStart=0x7f05000f;
         public static final int compFirstname=0x7f050012;
         public static final int compLastname=0x7f050013;

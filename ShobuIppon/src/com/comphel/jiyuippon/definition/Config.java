@@ -1,6 +1,9 @@
 package com.comphel.jiyuippon.definition;
 
 import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -11,9 +14,13 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import android.os.Environment;
 
 public class Config {
 
@@ -27,7 +34,9 @@ public class Config {
 	
 	private int atenaiToLose;
 	
-	private String configFile = "/sdcrad/Comphel/ShobuIppon/config.xml";
+	private String configPath = Environment.getExternalStorageDirectory() + "/Comphel/ShobuIppon/";
+	
+	private String config = "config.xml";
 	
 	public long getTimeleft() {
 		return timeleft;
@@ -71,10 +80,10 @@ public class Config {
 	
 	public void update(boolean isFinal){
 		 try {
-				File fXmlFile = new File(configFile);
+				File fXmlFile = new File(configPath+config);	
 				if(!fXmlFile.exists()){
 					createConfig();
-					fXmlFile = new File(configFile);
+					fXmlFile = new File(configPath+config);
 				}
 				
 				DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -83,13 +92,14 @@ public class Config {
 			 
 				doc.getDocumentElement().normalize();
 			 
+				Element root = doc.getDocumentElement();
+				
+					NodeList nList = root.getElementsByTagName("normal");
+					readElement((Element)  nList.item(0));
+
 				if(!isFinal){
-					NodeList nList = doc.getElementsByTagName("normal");
-					readElement((Element)  nList.item(0));
-				}
-				else{
-					NodeList nList = doc.getElementsByTagName("finals");
-					readElement((Element)  nList.item(0));
+					NodeList nListFinale = root.getElementsByTagName("finals");
+					readElement((Element)  nListFinale.item(0));
 				}
 				
 			    } catch (Exception e) {
@@ -101,11 +111,38 @@ public class Config {
 	private void readElement(Element nNode) {
 		Element eElement = (Element) nNode;
 		
-		setAtenaiToLose(Integer.parseInt(eElement.getElementsByTagName("atenai").item(0).getTextContent()));
-		setJogaiToLose(Integer.parseInt(eElement.getElementsByTagName("jogai").item(0).getTextContent()));
-		setMuobiToLose(Integer.parseInt(eElement.getElementsByTagName("muobi").item(0).getTextContent()));
-		setTimeleft(Long.parseLong(eElement.getElementsByTagName("time").item(0).getTextContent()));
-		setWazariToWin(Integer.parseInt(eElement.getElementsByTagName("wazari").item(0).getTextContent()));
+		try{
+			readValue(eElement.getElementsByTagName("atenai").item(0));
+			readValue(eElement.getElementsByTagName("jogai").item(0));
+			readValue(eElement.getElementsByTagName("muobi").item(0));
+			readValue(eElement.getElementsByTagName("time").item(0));
+			readValue(eElement.getElementsByTagName("wazari").item(0));
+		}catch(ConfigNotCompleteException cnce){
+			cnce.printStackTrace();
+		}
+	}
+
+	private void readValue(Node node) throws ConfigNotCompleteException{
+		if(node == null){
+			throw new ConfigNotCompleteException();
+		}
+		
+		//finds the right setter and invokes the method with the right value
+		for(Method setter : Config.class.getDeclaredMethods()){
+			if(setter.getName().contains("set") && setter.getName().contains(node.getNodeName().substring(1))){
+				try {
+					setter.invoke(this, Integer.parseInt(node.getTextContent()));
+				} catch (IllegalArgumentException e) {
+					e.printStackTrace();
+				} catch (DOMException e) {
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					e.printStackTrace();
+				} catch (InvocationTargetException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 
 	private void createConfig() {
@@ -123,7 +160,7 @@ public class Config {
 				Element normal = doc.createElement("normal");
 				rootElement.appendChild(normal);
 		 
-				Element time = doc.createElement("wazari");
+				Element time = doc.createElement("time");
 				time.appendChild(doc.createTextNode("120000"));
 				normal.appendChild(time);
 				
@@ -143,27 +180,43 @@ public class Config {
 				muobi.appendChild(doc.createTextNode("3"));
 				normal.appendChild(muobi);
 				
-				
+				//final
 				Element finals = doc.createElement("finals");
 				rootElement.appendChild(finals);
 		 
-				wazari.appendChild(doc.createTextNode("6"));
-				finals.appendChild(wazari);
+				Element wazariForFinal = doc.createElement("wazari");
+				wazariForFinal.appendChild(doc.createTextNode("6"));
+				finals.appendChild(wazariForFinal);
+				
+				Element timeForFinal = doc.createElement("time");
+				timeForFinal.appendChild(doc.createTextNode("120000"));
+				normal.appendChild(timeForFinal);
+				
+				Element jogaiForFinal = doc.createElement("jogai");
+				jogaiForFinal.appendChild(doc.createTextNode("3"));
+				normal.appendChild(jogaiForFinal);
 		 
-				jogai.appendChild(doc.createTextNode("3"));
-				finals.appendChild(jogai);
+				Element atenaiForFinal = doc.createElement("atenai");
+				atenaiForFinal.appendChild(doc.createTextNode("3"));
+				normal.appendChild(atenaiForFinal);
 		 
-				atenai.appendChild(doc.createTextNode("3"));
-				finals.appendChild(atenai);
-		 
-				muobi.appendChild(doc.createTextNode("3"));
-				finals.appendChild(muobi);
+				Element muobiForFinal = doc.createElement("muobi");
+				muobiForFinal.appendChild(doc.createTextNode("3"));
+				normal.appendChild(muobiForFinal);
 		 
 				// write the content into xml file
 				TransformerFactory transformerFactory = TransformerFactory.newInstance();
 				Transformer transformer = transformerFactory.newTransformer();
 				DOMSource source = new DOMSource(doc);
-				StreamResult result = new StreamResult(new File(configFile));
+				File file = new File(configPath);
+				File configFile = new File(configPath+config);
+				try {
+					file.mkdirs();
+					configFile.createNewFile();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				StreamResult result = new StreamResult(configFile);
 		 
 				transformer.transform(source, result);
 			  } catch (ParserConfigurationException pce) {
