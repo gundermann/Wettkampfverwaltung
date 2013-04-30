@@ -10,6 +10,7 @@ import com.example.jiyuippon.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -19,7 +20,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Chronometer;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;
@@ -30,7 +30,7 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 	
 	Dialog currentDialog;
 
-	private Dialog dialog;
+	private Builder dialogBuilder;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 		updateLayout();
 		
 		if(match == null){
-			openDialogToSetupCompetitors();
+			initNewMatch();
 		}
 
 		getBtStart().setOnClickListener(new OnClickListener() {
@@ -134,7 +134,7 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 				});
 	}
 	
-	private void updateStrings() {
+	protected void updateStrings() {
 		((TextView) findViewById(R.id.tvAka)).setText( this.match.getAka().toString());
 		((TextView) findViewById(R.id.tvshiro)).setText( this.match.getShiro().toString());
 	}
@@ -217,50 +217,21 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 		alertDialogBuilder.setView(promptsView);
 		alertDialogBuilder.setCancelable(false);
 
-		setDialog(alertDialogBuilder.create());
+		setDialog(alertDialogBuilder);
 		
-		dialog.show();		
-		
-		Button btAddCompetitior = (Button) dialog.findViewById(R.id.btAddCompetitors);
-		btAddCompetitior.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				KumiteCompetitor aka = createNewKumiteCompetitor(((EditText) dialog.findViewById(R.id.akaFirstname)).getText().toString(), ((EditText) dialog.findViewById(R.id.akaLastname)).getText().toString());
-				KumiteCompetitor shiro = createNewKumiteCompetitor(((EditText) dialog.findViewById(R.id.shiroFirstname)).getText().toString(), ((EditText) dialog.findViewById(R.id.shiroLastname)).getText().toString());
-				
-				createNewMatch(aka, shiro);
-				
-				updateStrings();
-				
-				dialog.cancel();
-			}
-			
-			
-		});
+		new DialogForSetupCompetitors(this);
 	}
-
-	private void createNewMatch(KumiteCompetitor aka,
-			KumiteCompetitor shiro) {
-		match = new Match(aka, shiro, new Stopwatch(getClock()), this);
-	}
-
-	private KumiteCompetitor createNewKumiteCompetitor(String firstname, String lastname) {
-		return new KumiteCompetitor(firstname, lastname, 10, null);
-	}
-
-	private void setDialog(AlertDialog createdDialog) {
-		if(this.dialog != null){
-			dialog.dismiss();
-		}
-		this.dialog = createdDialog;
+	
+	private void setDialog(Builder alertDialogBuilder) {
+		this.dialogBuilder = alertDialogBuilder;
 	}
 
 	@Override
 	public void reactOnOutOfTime() {
 		openDialogForRefereeDecision();
+		match.getClock().handleStopped();
 	}
-
+	
 	private void openDialogForRefereeDecision() {
 		LayoutInflater li = LayoutInflater.from(this);
 		View promptsView = li.inflate(R.layout.dialog_jurie_judegment_by_flag, null);
@@ -271,44 +242,9 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 
 		alertDialogBuilder.setView(promptsView);
 
-		setDialog(alertDialogBuilder.create());
+		setDialog(alertDialogBuilder);
 		
-		Button btAkaWins = (Button) findViewById(R.id.btAkaWins);
-		btAkaWins.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				match.setWinner(CompetitorNameInCompetition.Aka);
-				dialog.cancel();
-			}
-		});
-		
-		Button btShiroWins = (Button) findViewById(R.id.btshiroWins);
-		btShiroWins.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				match.setWinner(CompetitorNameInCompetition.Shiro);
-				dialog.cancel();
-			}
-		});
-		
-		Button btHikewake = (Button) findViewById(R.id.btHikewake);
-		if(match.getRound() != 3){
-		btHikewake.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				match.reset();
-				match.setRound(match.getRound()+1);
-				dialog.cancel();
-			}
-		});
-		}else{
-			btHikewake.setEnabled(false);
-		}
-		
-		dialog.show();
+		new DialogForRefereeDecision(this);
 	}
 
 	@Override
@@ -326,22 +262,22 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 
 		alertDialogBuilder.setView(promptsView);
 
-		setDialog(alertDialogBuilder.create());
-		
-		Button btNextMatch = (Button) findViewById(R.id.buttonNextMatch);
-		btNextMatch.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				match = null;
-				openDialogToSetupCompetitors();
-				dialog.cancel();
-			}
-		});
-		
-		dialog.show();
-		// TODO Auto-generated method stub
-		
+		setDialog(alertDialogBuilder);
+
+		new DialogForFinishing(this);
+	}
+	
+	public Builder getDialogBuilder() {
+		return this.dialogBuilder;
+	}
+
+	public void createNewMatch(KumiteCompetitor aka, KumiteCompetitor shiro) {
+		this.match = new Match(aka, shiro, new Stopwatch(getClock()), this);
+	}
+
+	public void initNewMatch() {
+		match = null;
+		openDialogToSetupCompetitors();		
 	}
 
 }
