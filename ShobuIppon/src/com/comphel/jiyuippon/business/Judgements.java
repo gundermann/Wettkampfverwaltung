@@ -6,16 +6,30 @@ import com.comphel.jiyuippon.definition.Muobi;
 
 public class Judgements {
 	
-	private Atenai atenai = null;
+	private Atenai atenai = Atenai.NONE;
 	
-	private Jogai jogai = null;
+	private Jogai jogai = Jogai.NONE;
 	
-	private Muobi muobi = null;
+	private Muobi muobi = Muobi.NONE;
 	
 	private int score = 0;
 	
 	private boolean hansuko = false;
 	
+
+	
+	
+	public Atenai getAtenai() {
+		return atenai;
+	}
+
+	public Jogai getJogai() {
+		return jogai;
+	}
+
+	public Muobi getMuobi() {
+		return muobi;
+	}
 
 	public void addWazari(){
 		score++;

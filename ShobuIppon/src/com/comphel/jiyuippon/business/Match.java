@@ -19,6 +19,8 @@ public class Match extends Thread{
 	
 	Config control;
 	
+	boolean isPaused = true;
+	
 	int round = 1;
 
 	public Match(KumiteCompetitor aka, KumiteCompetitor shiro, Stopwatch clock, CompetitionListener compListener){
@@ -33,15 +35,31 @@ public class Match extends Thread{
 	
 	public void run(){
 //		clock.handleStart();
-		while(!isOutOfTime()){
-			
+		while(!isFinished()){
+			if(!isPaused){
+				//time is over
+			if(isOutOfTime()){
+				pause();
+				compListener.reactOnOutOfTime();
+			}
+			}
 		}
-		//time is over
-		compListener.reactOnOutOfTime();
 	}
 
 	public void pause(){
 		clock.handleStopped();
+		if(!isPaused)
+			changeState();
+	}
+	
+	public void changeState(){
+		if(isPaused){
+			isPaused=false;
+		}
+		else{
+			isPaused = true;
+		}
+			
 	}
 	
 	private boolean isOutOfTime() {
@@ -49,6 +67,7 @@ public class Match extends Thread{
 	}
 	
 	public void nextRound(){
+		this.reset();
 		this.round++;
 	}
 	
@@ -114,10 +133,12 @@ public class Match extends Thread{
 	private void evaluateWinner(){
 		if(isFinished()){
 			if(aka.getJudgement().isHansuko())
-				winner = shiro;
+				setWinner(CompetitorNameInCompetition.Shiro);
+			else if(shiro.getJudgement().isHansuko())
+				setWinner(CompetitorNameInCompetition.Aka);
 			else if(shiro.getJudgement().getScore() == control.getWazariToWin())
-				winner = shiro;
-			winner = aka;
+				setWinner(CompetitorNameInCompetition.Shiro);
+			setWinner(CompetitorNameInCompetition.Aka);
 		}
 	}
 
@@ -147,6 +168,7 @@ public class Match extends Thread{
 	public void reset() {
 		aka.clearAllJudgements();
 		shiro.clearAllJudgements();
+		clock.reset();
 	}
 
 	public KumiteCompetitor getAka() {

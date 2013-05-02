@@ -15,7 +15,8 @@
     <string name="atenaiAka">Atenai: 0</string>
     <string name="muobiShiro">Muobi: 0</string>
     <string name="muobiAka">Muobi: 0</string>
-    <string name="startStop">Start</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
     <string name="clockStart">00:00</string>
     <string name="akaTitle">Aka</string>
 	<string name="shiroTitle">Shiro</string>

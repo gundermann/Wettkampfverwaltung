@@ -9,6 +9,8 @@ public class Stopwatch {
 	private Long lastTime;
 	
 	private Chronometer clock;
+
+	private boolean isStopped = true;
 	
 	public Stopwatch(Chronometer clock) {
 		this.clock = clock;
@@ -25,6 +27,7 @@ public class Stopwatch {
 	 */
 	public void handleStopped() {
 		this.setLastTime(SystemClock.elapsedRealtime()-clock.getBase());
+		isStopped = true;
 		clock.stop();
 	}
 
@@ -37,9 +40,14 @@ public class Stopwatch {
 	 */
 	public void handleStart(){
 		clock.setBase(SystemClock.elapsedRealtime()-this.lastTime);
-		
+		isStopped = false;
 		clock.start();
 		
+	}
+	
+	public void reset(){
+		handleStopped();
+		this.setLastTime(0L);
 	}
 	
 	
@@ -66,6 +74,11 @@ public class Stopwatch {
 
 	public Long getLastTime() {
 		return lastTime;
+	}
+
+
+	public boolean isStopped() {
+		return isStopped;
 	}
 	
 }

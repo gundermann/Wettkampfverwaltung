@@ -20,6 +20,7 @@ class DialogForSetupCompetitors{
             public void run(){
             	
                 dialog = jiyuIppon.getDialogBuilder().create();
+                dialog.setCancelable(false);
                 dialog.show();
                 
                 Button btAddCompetitor = (Button) dialog.findViewById(R.id.btAddCompetitors);
@@ -34,6 +35,8 @@ class DialogForSetupCompetitors{
 						jiyuIppon.createNewMatch(aka, shiro);
 						
 						jiyuIppon.updateStrings();
+						
+						jiyuIppon.match.start(); 
 						
 						dialog.dismiss();
 					}

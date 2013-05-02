@@ -19,7 +19,7 @@
     
     <Button 
         android:id="@+id/buttonStartStop"
-         android:text="@string/startStop"
+         android:text="@string/start"
          android:background="@drawable/blue_btn"
         style="@style/TextNormal"
         />
