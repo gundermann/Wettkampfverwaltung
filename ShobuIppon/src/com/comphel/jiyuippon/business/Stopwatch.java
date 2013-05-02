@@ -48,6 +48,9 @@ public class Stopwatch {
 	public void reset(){
 		handleStopped();
 		this.setLastTime(0L);
+		handleStart();
+		handleStopped();
+		this.setLastTime(0L);
 	}
 	
 	

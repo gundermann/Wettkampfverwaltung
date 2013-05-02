@@ -95,9 +95,9 @@ public class Judgements {
 	}
 
 	public void clear() {
-		atenai = null;
-		jogai = null;
+		atenai = Atenai.NONE;
+		jogai = Jogai.NONE;
 		score = 0;
-		muobi = null;
+		muobi = Muobi.NONE;
 	}
 }

@@ -31,6 +31,7 @@ public class DialogForFinishing {
                 	@Override
                 	public void onClick(View arg0) {
                 		jiyuIppon.initNewMatch();
+                		jiyuIppon.reset();
                 		dialog.dismiss();
                 	}
                 });

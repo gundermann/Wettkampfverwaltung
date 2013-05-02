@@ -67,9 +67,8 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 			@Override
 			public void onClick(View arg0) {
 				stopClock();
-//				match.interrupt();
 				match.wazari(CompetitorNameInCompetition.Aka);
-				updateStrings();
+				getBtScoreAka().setText(String.valueOf(match.getAka().getJudgement().getScore()));
 			}
 		});
 		
@@ -78,9 +77,8 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 			@Override
 			public void onClick(View arg0) {
 				stopClock();
-//				match.suspend();
 				match.jogai(CompetitorNameInCompetition.Aka);
-				updateStrings();
+				getBtJogaiAka().setText("Jogai: " + String.valueOf(match.getAka().getJudgement().getJogai().toNumber()));
 			}
 		});
 		
@@ -90,7 +88,7 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 			public void onClick(View arg0) {
 				stopClock();
 				match.atenai(CompetitorNameInCompetition.Aka);
-				updateStrings();
+				getBtAtenaiAka().setText("Atenai: " + String.valueOf(match.getAka().getJudgement().getAtenai().toNumber()));
 			}
 		});
 		
@@ -147,8 +145,16 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 	}
 	
 	protected void updateStrings() {
-		((TextView) findViewById(R.id.tvAka)).setText( this.match.getAka().toString());
-		((TextView) findViewById(R.id.tvshiro)).setText( this.match.getShiro().toString());
+		String akaName =  this.match.getAka().toString();
+		if( akaName.equals(" "))
+			akaName = CompetitorNameInCompetition.Aka.toString();
+
+		String shiroName = this.match.getShiro().toString();
+		if(shiroName.equals(" "))
+			shiroName = CompetitorNameInCompetition.Shiro.toString();
+		
+		((TextView) findViewById(R.id.tvAka)).setText( akaName );
+		((TextView) findViewById(R.id.tvshiro)).setText( shiroName );
 	}
 
 	private void startClock() {
@@ -302,7 +308,6 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 	}
 
 	public void reset() {
-		getClock().clearComposingText();
 		getBtStart().setText("Start");
 		
 		getBtAtenaiAka().setText(R.string.atenaiAka);

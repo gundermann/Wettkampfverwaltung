@@ -28,6 +28,7 @@ public class Match extends Thread{
 		this.shiro = shiro;
 		this.clock = clock;
 		this.compListener = compListener;
+		this.clock.reset();
 		
 		control = new Config();
 		control.update(isFinal);
@@ -138,7 +139,8 @@ public class Match extends Thread{
 				setWinner(CompetitorNameInCompetition.Aka);
 			else if(shiro.getJudgement().getScore() == control.getWazariToWin())
 				setWinner(CompetitorNameInCompetition.Shiro);
-			setWinner(CompetitorNameInCompetition.Aka);
+			else
+				setWinner(CompetitorNameInCompetition.Aka);
 		}
 	}
 
