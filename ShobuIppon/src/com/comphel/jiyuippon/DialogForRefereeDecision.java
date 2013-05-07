@@ -1,9 +1,12 @@
 package com.comphel.jiyuippon;
 
 import com.comphel.jiyuippon.definition.CompetitorNameInCompetition;
-import com.example.jiyuippon.R;
+import com.comphel.jiyuippon.R;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -12,7 +15,7 @@ public class DialogForRefereeDecision {
 	
 	private Dialog dialog;
 
-	public DialogForRefereeDecision(final JiyuIppon jiyuIppon) {
+	public DialogForRefereeDecision(final ShobuIppon jiyuIppon) {
 		jiyuIppon.runOnUiThread(new Runnable() {
             @Override
             public void run(){
@@ -21,8 +24,28 @@ public class DialogForRefereeDecision {
                 dialog.setCancelable(false);
                 dialog.show();
                 
-                Button btAkaWins = (Button) dialog.findViewById(R.id.btAkaWins);
-                btAkaWins.setOnClickListener(new OnClickListener() {
+                dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+                    
+                	@Override
+                    public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                        if (keyCode == KeyEvent.KEYCODE_BACK) {
+                               dialog.cancel();
+                               return true;
+                            }
+                         return false;
+                    }
+
+                });
+                
+                dialog.setOnCancelListener(new OnCancelListener() {
+					
+					@Override
+					public void onCancel(DialogInterface arg0) {
+						jiyuIppon.finish();
+					}
+				});
+               
+                getBtAka().setOnClickListener(new OnClickListener() {
 					
 					@Override
 					public void onClick(View v) {
@@ -31,8 +54,7 @@ public class DialogForRefereeDecision {
 					}
 				});
                 
-                Button btShiroWins = (Button) dialog.findViewById(R.id.btshiroWins);
-                btShiroWins.setOnClickListener(new OnClickListener() {
+                getBtShiro().setOnClickListener(new OnClickListener() {
 					
 					@Override
 					public void onClick(View v) {
@@ -52,8 +74,18 @@ public class DialogForRefereeDecision {
 					}
 				});
                 
+              
             }
+
         });
 	}
+	
+	private Button getBtAka(){
+		return  (Button) dialog.findViewById(R.id.btAkaWins);
+	}
 
+	private Button getBtShiro(){
+		return  (Button) dialog.findViewById(R.id.btshiroWins);
+	}
+	
 }

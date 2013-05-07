@@ -6,7 +6,7 @@ import com.comphel.jiyuippon.business.KumiteCompetitor;
 import com.comphel.jiyuippon.business.Match;
 import com.comphel.jiyuippon.business.Stopwatch;
 import com.comphel.jiyuippon.definition.CompetitorNameInCompetition;
-import com.example.jiyuippon.R;
+import com.comphel.jiyuippon.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -24,7 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;
 
-public class JiyuIppon extends Activity implements CompetitionListener{
+public class ShobuIppon extends Activity implements CompetitionListener{
 	
 	Match match;
 	
@@ -66,7 +66,7 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 			
 			@Override
 			public void onClick(View arg0) {
-				stopClock();
+//				stopClock();
 				match.wazari(CompetitorNameInCompetition.Aka);
 				getBtScoreAka().setText(String.valueOf(match.getAka().getJudgement().getScore()));
 			}
@@ -76,9 +76,9 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 			
 			@Override
 			public void onClick(View arg0) {
-				stopClock();
+//				stopClock();
 				match.jogai(CompetitorNameInCompetition.Aka);
-				getBtJogaiAka().setText("Jogai: " + String.valueOf(match.getAka().getJudgement().getJogai().toNumber()));
+				getBtJogaiAka().setText("J: " + String.valueOf(match.getAka().getJudgement().getJogai().toNumber()));
 			}
 		});
 		
@@ -86,9 +86,9 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 			
 			@Override
 			public void onClick(View arg0) {
-				stopClock();
+//				stopClock();
 				match.atenai(CompetitorNameInCompetition.Aka);
-				getBtAtenaiAka().setText("Atenai: " + String.valueOf(match.getAka().getJudgement().getAtenai().toNumber()));
+				getBtAtenaiAka().setText("A: " + String.valueOf(match.getAka().getJudgement().getAtenai().toNumber()));
 			}
 		});
 		
@@ -96,9 +96,9 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 			
 			@Override
 			public void onClick(View arg0) {
-				stopClock();
+//				stopClock();
 				match.muobi(CompetitorNameInCompetition.Aka);
-				getBtMuobiAka().setText("Muobi: " + String.valueOf(match.getAka().getJudgement().getMuobi().toNumber()));
+				getBtMuobiAka().setText("M: " + String.valueOf(match.getAka().getJudgement().getMuobi().toNumber()));
 			}
 		});
 		
@@ -107,7 +107,7 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 					
 					@Override
 					public void onClick(View arg0) {
-						stopClock();
+//						stopClock();
 						match.wazari(CompetitorNameInCompetition.Shiro);
 						getBtScoreShiro().setText(String.valueOf(match.getShiro().getJudgement().getScore()));
 					}
@@ -117,9 +117,9 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 					
 					@Override
 					public void onClick(View arg0) {
-						stopClock();
+//						stopClock();
 						match.jogai(CompetitorNameInCompetition.Shiro);
-						getBtJogaiShiro().setText("Jogai: " + String.valueOf(match.getShiro().getJudgement().getJogai().toNumber()));
+						getBtJogaiShiro().setText("J: " + String.valueOf(match.getShiro().getJudgement().getJogai().toNumber()));
 					}
 				});
 				
@@ -127,9 +127,9 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 					
 					@Override
 					public void onClick(View arg0) {
-						stopClock();
+//						stopClock();
 						match.atenai(CompetitorNameInCompetition.Shiro);
-						getBtAtenaiShiro().setText("Atenai: " + String.valueOf(match.getShiro().getJudgement().getAtenai().toNumber()));
+						getBtAtenaiShiro().setText("A: " + String.valueOf(match.getShiro().getJudgement().getAtenai().toNumber()));
 					}
 				});
 				
@@ -137,9 +137,9 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 					
 					@Override
 					public void onClick(View arg0) {
-						stopClock();
+//						stopClock();
 						match.muobi(CompetitorNameInCompetition.Shiro);
-						getBtMuobiShiro().setText("Muobi: " + String.valueOf(match.getShiro().getJudgement().getMuobi().toNumber()));
+						getBtMuobiShiro().setText("M: " + String.valueOf(match.getShiro().getJudgement().getMuobi().toNumber()));
 					}
 				});
 	}
@@ -189,6 +189,7 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 	}
 
 
+	
 	private Button getBtScoreAka() {
 		return (Button) findViewById(R.id.ButtonScoreAka);
 	}
@@ -276,6 +277,8 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 
 	@Override
 	public void reactOnEvaluatedWinner() {
+		match.pause();
+		stopClock();
 		openDialogForFinishing();
 	}
 
@@ -298,8 +301,8 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 		return this.dialogBuilder;
 	}
 
-	public void createNewMatch(KumiteCompetitor aka, KumiteCompetitor shiro) {
-		this.match = new Match(aka, shiro, new Stopwatch(getClock()), this);
+	public void createNewMatch(KumiteCompetitor aka, KumiteCompetitor shiro, boolean isFianle) {
+		this.match = new Match(aka, shiro, new Stopwatch(getClock()), this, isFianle );
 	}
 
 	public void initNewMatch() {
@@ -321,6 +324,11 @@ public class JiyuIppon extends Activity implements CompetitionListener{
 		
 		getBtScoreAka().setText(R.string.scoreAka);
 		getBtScoreShiro().setText(R.string.scoreShiro);
+	}
+	
+	@Override
+	public void onBackPressed(){
+		this.finish();
 	}
 
 }

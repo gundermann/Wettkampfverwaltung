@@ -2,7 +2,7 @@ package com.comphel.jiyuippon.business;
 
 import com.comphel.jiyuippon.definition.Atenai;
 import com.comphel.jiyuippon.definition.Jogai;
-import com.comphel.jiyuippon.definition.Muobi;
+import com.comphel.jiyuippon.definition.Mubobi;
 
 public class Judgements {
 	
@@ -10,7 +10,7 @@ public class Judgements {
 	
 	private Jogai jogai = Jogai.NONE;
 	
-	private Muobi muobi = Muobi.NONE;
+	private Mubobi muobi = Mubobi.NONE;
 	
 	private int score = 0;
 	
@@ -27,7 +27,7 @@ public class Judgements {
 		return jogai;
 	}
 
-	public Muobi getMuobi() {
+	public Mubobi getMuobi() {
 		return muobi;
 	}
 
@@ -61,14 +61,14 @@ public class Judgements {
 	public void addMuobi() {
 		switch (muobi) {
 		case MUOBI:
-			muobi = Muobi.MUOBICHUI;
+			muobi = Mubobi.MUOBICHUI;
 			break;
 		case MUOBICHUI:
-			muobi = Muobi.MUOBIHANSUKO;
+			muobi = Mubobi.MUOBIHANSUKO;
 			setHansuko(true);
 			break;
 		default:
-			muobi = Muobi.MUOBI;
+			muobi = Mubobi.MUOBI;
 		}
 	}
 	
@@ -98,6 +98,6 @@ public class Judgements {
 		atenai = Atenai.NONE;
 		jogai = Jogai.NONE;
 		score = 0;
-		muobi = Muobi.NONE;
+		muobi = Mubobi.NONE;
 	}
 }

@@ -7,7 +7,7 @@ public class Match extends Thread{
 
 	CompetitionListener compListener;
 	
-	boolean isFinal;
+	boolean isFinale;
 	
 	private KumiteCompetitor winner;
 	
@@ -23,15 +23,16 @@ public class Match extends Thread{
 	
 	int round = 1;
 
-	public Match(KumiteCompetitor aka, KumiteCompetitor shiro, Stopwatch clock, CompetitionListener compListener){
+	public Match(KumiteCompetitor aka, KumiteCompetitor shiro, Stopwatch clock, CompetitionListener compListener, boolean isFianle){
 		this.aka = aka;
 		this.shiro = shiro;
 		this.clock = clock;
 		this.compListener = compListener;
 		this.clock.reset();
+		this.isFinale=isFianle;
 		
 		control = new Config();
-		control.update(isFinal);
+		control.update(isFinale);
 	}
 	
 	public void run(){
@@ -73,17 +74,19 @@ public class Match extends Thread{
 	}
 	
 	public void wazari(CompetitorNameInCompetition comp){
-		pause();
+//		pause();
 		if(comp == CompetitorNameInCompetition.Aka){
 			aka.getJudgement().addWazari();
 		}
-		shiro.getJudgement().addWazari();
+		else{
+			shiro.getJudgement().addWazari();
+		}
 		
 		evaluateWinner();
 	}
 	
 	public void ippon(CompetitorNameInCompetition comp){
-		pause();
+//		pause();
 		if(comp == CompetitorNameInCompetition.Aka)		
 			aka.getJudgement().addIppon();
 		else
@@ -93,7 +96,7 @@ public class Match extends Thread{
 	}	
 	
 	public void jogai(CompetitorNameInCompetition comp){
-		pause();
+//		pause();
 		if(comp == CompetitorNameInCompetition.Aka)
 			aka.getJudgement().addJogai();
 		else
@@ -103,7 +106,7 @@ public class Match extends Thread{
 	}
 	
 	public void muobi(CompetitorNameInCompetition comp){
-		pause();
+//		pause();
 		if(comp == CompetitorNameInCompetition.Aka)
 			aka.getJudgement().addMuobi();
 		else
@@ -113,7 +116,7 @@ public class Match extends Thread{
 	}
 	
 	public void atenai(CompetitorNameInCompetition comp){
-		pause();
+//		pause();
 		if(comp == CompetitorNameInCompetition.Aka)
 			aka.getJudgement().addAtenai();
 		else

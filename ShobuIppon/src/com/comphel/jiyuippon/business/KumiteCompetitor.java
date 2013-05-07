@@ -4,11 +4,12 @@ import com.comphel.jiyuippon.definition.Graduierung;
 
 public class KumiteCompetitor extends Competitor{
 
-	private Judgements judgement = new Judgements();
+	private Judgements judgement;
 	
 	public KumiteCompetitor(String vorname, String nachname, int alter,
 			Graduierung grad) {
 		super(vorname, nachname, alter, grad);
+		judgement = new Judgements();
 	}
 
 	public Judgements getJudgement() {

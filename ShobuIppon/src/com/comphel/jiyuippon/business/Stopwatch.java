@@ -18,7 +18,7 @@ public class Stopwatch {
 	}
 	
 	
-	public void updateClock(Long time){
+	public void updateClockByTime(Long time){
 		this.lastTime = time;
 	}
 	

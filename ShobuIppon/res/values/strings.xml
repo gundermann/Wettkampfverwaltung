@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">JiyuIppon</string>
+    <string name="app_name">Shobu-Ippon</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="shobuIppon">Shobu-Ippon</string>
@@ -9,12 +9,12 @@
     <string name="scoreShiro">0</string>
     <string name="shiro"></string>
     <string name="aka"></string>
-    <string name="jogaiShiro">Jogai: 0</string>
-    <string name="jogaiAka">Jogai: 0</string>
-    <string name="atenaiShiro">Atenai: 0</string>
-    <string name="atenaiAka">Atenai: 0</string>
-    <string name="muobiShiro">Muobi: 0</string>
-    <string name="muobiAka">Muobi: 0</string>
+    <string name="jogaiShiro">J: 0</string>
+    <string name="jogaiAka">J: 0</string>
+    <string name="atenaiShiro">A: 0</string>
+    <string name="atenaiAka">A: 0</string>
+    <string name="muobiShiro">M: 0</string>
+    <string name="muobiAka">M: 0</string>
     <string name="start">Start</string>
     <string name="stop">Stop</string>
     <string name="clockStart">00:00</string>
@@ -23,10 +23,11 @@
 	<string name="compFirstname">Vorname:</string>
     <string name="compLastname">Nachname:</string>
     <string name="startMatch">Starten</string>
-    <string name="judegment">Kampfrichterentscheidung</string>
-    <string name="hikewake">Hikewake</string>
+    <string name="judegment">Hantei</string>
+    <string name="hikewake">Hikiwake</string>
     <string name="winner"></string>
     <string name="nextMatch">Nächster Kampf</string>	
+    <string name="finale">Finale</string>
     <string name="chronometer_initial_format">Initial format:<xliff:g id="initial-format">%</xliff:g></string>
 	
 	

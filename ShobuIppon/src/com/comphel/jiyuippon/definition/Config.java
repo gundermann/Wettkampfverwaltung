@@ -30,7 +30,7 @@ public class Config {
 	
 	private int jogaiToLose;
 	
-	private int muobiToLose;
+	private int mubobiToLose;
 	
 	private int atenaiToLose;
 	
@@ -63,11 +63,11 @@ public class Config {
 	}
 
 	public int getMuobiToLose() {
-		return muobiToLose;
+		return mubobiToLose;
 	}
 
 	public void setMuobiToLose(int muobiToLose) {
-		this.muobiToLose = muobiToLose;
+		this.mubobiToLose = muobiToLose;
 	}
 
 	public int getAtenaiToLose() {
@@ -97,7 +97,7 @@ public class Config {
 					NodeList nList = root.getElementsByTagName("normal");
 					readElement((Element)  nList.item(0));
 
-				if(!isFinal){
+				if(isFinal){
 					NodeList nListFinale = root.getElementsByTagName("finals");
 					readElement((Element)  nListFinale.item(0));
 				}
@@ -114,7 +114,7 @@ public class Config {
 		try{
 			readValue(eElement.getElementsByTagName("atenai").item(0));
 			readValue(eElement.getElementsByTagName("jogai").item(0));
-			readValue(eElement.getElementsByTagName("muobi").item(0));
+			readValue(eElement.getElementsByTagName("mubobi").item(0));
 			readValue(eElement.getElementsByTagName("time").item(0));
 			readValue(eElement.getElementsByTagName("wazari").item(0));
 		}catch(ConfigNotCompleteException cnce){
@@ -176,7 +176,7 @@ public class Config {
 				atenai.appendChild(doc.createTextNode("3"));
 				normal.appendChild(atenai);
 		 
-				Element muobi = doc.createElement("muobi");
+				Element muobi = doc.createElement("mubobi");
 				muobi.appendChild(doc.createTextNode("3"));
 				normal.appendChild(muobi);
 				
@@ -189,20 +189,20 @@ public class Config {
 				finals.appendChild(wazariForFinal);
 				
 				Element timeForFinal = doc.createElement("time");
-				timeForFinal.appendChild(doc.createTextNode("120000"));
-				normal.appendChild(timeForFinal);
+				timeForFinal.appendChild(doc.createTextNode("180000"));
+				finals.appendChild(timeForFinal);
 				
 				Element jogaiForFinal = doc.createElement("jogai");
 				jogaiForFinal.appendChild(doc.createTextNode("3"));
-				normal.appendChild(jogaiForFinal);
+				finals.appendChild(jogaiForFinal);
 		 
 				Element atenaiForFinal = doc.createElement("atenai");
 				atenaiForFinal.appendChild(doc.createTextNode("3"));
-				normal.appendChild(atenaiForFinal);
+				finals.appendChild(atenaiForFinal);
 		 
-				Element muobiForFinal = doc.createElement("muobi");
-				muobiForFinal.appendChild(doc.createTextNode("3"));
-				normal.appendChild(muobiForFinal);
+				Element mubobiForFinal = doc.createElement("mubobi");
+				mubobiForFinal.appendChild(doc.createTextNode("3"));
+				finals.appendChild(mubobiForFinal);
 		 
 				// write the content into xml file
 				TransformerFactory transformerFactory = TransformerFactory.newInstance();

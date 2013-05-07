@@ -1,6 +1,6 @@
 package com.comphel.jiyuippon.definition;
 
-public enum Muobi {
+public enum Mubobi {
 	NONE, MUOBI, MUOBICHUI, MUOBIHANSUKO;
 	
 	public int toNumber(){
