@@ -20,8 +20,8 @@
     <string name="clockStart">00:00</string>
     <string name="akaTitle">Aka</string>
 	<string name="shiroTitle">Shiro</string>
-	<string name="compFirstname">Firstname:</string>
-    <string name="compLastname">Lastname:</string>
+	<string name="compFirstname">Vorname:</string>
+    <string name="compLastname">Nachname:</string>
     <string name="startMatch">Starten</string>
     <string name="judegment">Hantei</string>
     <string name="hikewake">Hikiwake</string>
