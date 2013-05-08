@@ -17,12 +17,12 @@
         
         <TextView 
             android:text="@string/akaTitle"
-            style="@style/TextBlack"
+            style="@style/TextBlackXL"
             android:gravity="left"/>
         
         <TextView 
             android:text="@string/compFirstname"
-            style="@style/TextBlack"
+            style="@style/TextBlackXL"
             android:gravity="left"/>
         
         <EditText 
@@ -33,7 +33,7 @@
         
         <TextView 
             android:text="@string/compLastname"
-            style="@style/TextBlack"
+            style="@style/TextBlackXL"
             android:gravity="left"/>
         
         <EditText 
@@ -53,12 +53,12 @@
         
         <TextView 
             android:text="@string/shiroTitle"
-            style="@style/TextBlack"
+            style="@style/TextBlackXL"
             android:gravity="left"/>
         
         <TextView 
             android:text="@string/compFirstname"
-            style="@style/TextBlack"
+            style="@style/TextBlackXL"
             android:gravity="left"/>
         
         <EditText 
@@ -69,7 +69,7 @@
         
         <TextView 
             android:text="@string/compLastname"
-            style="@style/TextBlack"
+            style="@style/TextBlackXL"
             android:gravity="left"/>
         
         <EditText 
@@ -96,12 +96,12 @@
     	android:textOn="@string/finale"
  		android:textOff="@string/evaluation"
         android:background="@drawable/blue_btn"
-        style="@style/TextBlack" />
+        style="@style/TextBlackXL" />
     
     <Button 
             android:id="@+id/btAddCompetitors"
             android:background="@drawable/blue_btn"
-            style="@style/TextBlack"
+            style="@style/TextBlackXL"
             android:text="@string/startMatch"
             android:layout_width="fill_parent"/>
     </LinearLayout>

@@ -66,7 +66,7 @@ public class Config {
 		return mubobiToLose;
 	}
 
-	public void setMuobiToLose(int muobiToLose) {
+	public void setMubobiToLose(int muobiToLose) {
 		this.mubobiToLose = muobiToLose;
 	}
 
@@ -82,8 +82,8 @@ public class Config {
 		 try {
 				File fXmlFile = new File(configPath+config);	
 				if(!fXmlFile.exists()){
-					createConfig();
-					fXmlFile = new File(configPath+config);
+					useDefaultConfig(isFinal);
+//					fXmlFile = new File(configPath+config);
 				}
 				
 				DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -106,6 +106,18 @@ public class Config {
 				e.printStackTrace();
 			    }
 		 
+	}
+
+	private void useDefaultConfig(boolean isFinal) {
+		setAtenaiToLose(3);
+		setJogaiToLose(3);
+		setMubobiToLose(3);
+		setTimeleft(120000);
+		setWazariToWin(2);
+		if(isFinal){
+			setTimeleft(180000);
+			setWazariToWin(6);
+		}
 	}
 
 	private void readElement(Element nNode) {

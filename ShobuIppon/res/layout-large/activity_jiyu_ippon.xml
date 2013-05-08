@@ -1,0 +1,175 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical" >
+    
+    <TextView 
+        android:id="@+id/headline"
+        android:text="@string/shobuIppon"
+        style="@style/TextBigL"/>
+    
+    <Chronometer 
+        android:id="@+id/clock"
+        android:text="@string/clockStart"
+        android:format="@string/chronometer_initial_format"
+        style="@style/TextNormalL"
+        />
+    
+    <Button 
+        android:id="@+id/buttonStartStop"
+         android:text="@string/start"
+         android:background="@drawable/blue_btn"
+        style="@style/TextNormalL"
+        />
+    
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <LinearLayout 
+            android:id="@+id/RedLayout"
+            android:background="@drawable/red_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            
+        <TextView 
+        android:id="@+id/tvAka"
+        android:text="@string/aka"
+        style="@style/TextBlackL"
+        android:gravity="left"
+        android:layout_width="fill_parent"/>
+        
+        <LinearLayout 
+            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal">
+            
+            <LinearLayout 
+                android:id="@+id/layoutAkaJudging"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:orientation="vertical">
+                
+                <Button 
+                    android:id="@+id/ButtonJogaiAka"
+                    style="@style/TextNormalL"
+                    android:text="@string/jogaiAka"
+                    android:background="@drawable/red_btn"/>
+                
+                <Button 
+                    android:id="@+id/ButtonAtenaiAka"
+                    style="@style/TextNormalL"
+                    android:text="@string/atenaiAka"
+                    android:background="@drawable/red_btn"/>
+                
+                <Button 
+                    android:id="@+id/ButtonMuobiAka"
+                    style="@style/TextNormalL"
+                    android:text="@string/muobiAka"
+                    android:background="@drawable/red_btn"/>
+                
+            </LinearLayout>
+            
+             <LinearLayout 
+                 android:id="@+id/layoutAkaScore"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
+            android:orientation="vertical">
+            
+                 
+                 
+                <Button 
+                    android:id="@+id/ButtonScoreAka"
+                    style="@style/TextBigL"
+                    android:text="@string/scoreAka"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/red_btn"/>
+                
+                 
+            </LinearLayout>
+            
+        </LinearLayout>
+        </LinearLayout>
+        
+        
+        <LinearLayout  android:id="@+id/WihteLayout"
+            android:background="@drawable/white_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            
+        <TextView 
+        android:id="@+id/tvshiro"
+        android:text="@string/shiro"
+        style="@style/TextBlackL"
+        android:gravity="right"
+        android:layout_width="fill_parent"/>
+            
+        <LinearLayout 
+            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal">
+            
+            
+             <LinearLayout 
+                 android:id="@+id/layoutShiroScore"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
+            android:orientation="vertical">
+            
+                 
+                <Button 
+                    android:id="@+id/ButtonScoreshiro"
+                    style="@style/TextBigL"
+                    android:layout_height="fill_parent"
+                    android:text="@string/scoreShiro"
+                    android:background="@drawable/black_btn"/>
+                
+                 
+            </LinearLayout>
+            
+             
+            <LinearLayout 
+                android:id="@+id/layoutShiroJudging"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:orientation="vertical">
+                
+                <Button 
+                    android:id="@+id/ButtonJogaiShiro"
+                    style="@style/TextNormalL"
+                    android:text="@string/jogaiShiro"
+                    android:background="@drawable/black_btn"/>
+                
+                <Button 
+                    android:id="@+id/ButtonAtenaiAshiro"
+                    style="@style/TextNormalL"
+                    android:text="@string/atenaiShiro"
+                    android:background="@drawable/black_btn"/>
+                
+                <Button 
+                    android:id="@+id/ButtonMuobiShiro"
+                    style="@style/TextNormalL"
+                    android:text="@string/muobiShiro"
+                    android:background="@drawable/black_btn"/>
+                
+            </LinearLayout>
+            
+            
+            
+        </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    
+   
+        
+        
+    
+    
+
+</LinearLayout>

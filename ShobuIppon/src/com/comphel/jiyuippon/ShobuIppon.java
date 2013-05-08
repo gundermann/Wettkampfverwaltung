@@ -51,7 +51,6 @@ public class ShobuIppon extends Activity implements CompetitionListener{
 				match.changeState();
 				if(!match.getClock().isStopped()){
 					stopClock();
-//					match.interrupt();
 				}else{
 					startClock();
 				}
@@ -66,7 +65,6 @@ public class ShobuIppon extends Activity implements CompetitionListener{
 			
 			@Override
 			public void onClick(View arg0) {
-//				stopClock();
 				match.wazari(CompetitorNameInCompetition.Aka);
 				getBtScoreAka().setText(String.valueOf(match.getAka().getJudgement().getScore()));
 			}
@@ -76,7 +74,6 @@ public class ShobuIppon extends Activity implements CompetitionListener{
 			
 			@Override
 			public void onClick(View arg0) {
-//				stopClock();
 				match.jogai(CompetitorNameInCompetition.Aka);
 				getBtJogaiAka().setText("J: " + String.valueOf(match.getAka().getJudgement().getJogai().toNumber()));
 			}
@@ -86,19 +83,17 @@ public class ShobuIppon extends Activity implements CompetitionListener{
 			
 			@Override
 			public void onClick(View arg0) {
-//				stopClock();
 				match.atenai(CompetitorNameInCompetition.Aka);
 				getBtAtenaiAka().setText("A: " + String.valueOf(match.getAka().getJudgement().getAtenai().toNumber()));
 			}
 		});
 		
-		getBtMuobiAka().setOnClickListener(new OnClickListener() {
+		getBtMubobiAka().setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View arg0) {
-//				stopClock();
 				match.muobi(CompetitorNameInCompetition.Aka);
-				getBtMuobiAka().setText("M: " + String.valueOf(match.getAka().getJudgement().getMuobi().toNumber()));
+				getBtMubobiAka().setText("M: " + String.valueOf(match.getAka().getJudgement().getMuobi().toNumber()));
 			}
 		});
 		
@@ -107,7 +102,6 @@ public class ShobuIppon extends Activity implements CompetitionListener{
 					
 					@Override
 					public void onClick(View arg0) {
-//						stopClock();
 						match.wazari(CompetitorNameInCompetition.Shiro);
 						getBtScoreShiro().setText(String.valueOf(match.getShiro().getJudgement().getScore()));
 					}
@@ -117,7 +111,6 @@ public class ShobuIppon extends Activity implements CompetitionListener{
 					
 					@Override
 					public void onClick(View arg0) {
-//						stopClock();
 						match.jogai(CompetitorNameInCompetition.Shiro);
 						getBtJogaiShiro().setText("J: " + String.valueOf(match.getShiro().getJudgement().getJogai().toNumber()));
 					}
@@ -127,19 +120,17 @@ public class ShobuIppon extends Activity implements CompetitionListener{
 					
 					@Override
 					public void onClick(View arg0) {
-//						stopClock();
 						match.atenai(CompetitorNameInCompetition.Shiro);
 						getBtAtenaiShiro().setText("A: " + String.valueOf(match.getShiro().getJudgement().getAtenai().toNumber()));
 					}
 				});
 				
-				getBtMuobiShiro().setOnClickListener(new OnClickListener() {
+				getBtMubobiShiro().setOnClickListener(new OnClickListener() {
 					
 					@Override
 					public void onClick(View arg0) {
-//						stopClock();
 						match.muobi(CompetitorNameInCompetition.Shiro);
-						getBtMuobiShiro().setText("M: " + String.valueOf(match.getShiro().getJudgement().getMuobi().toNumber()));
+						getBtMubobiShiro().setText("M: " + String.valueOf(match.getShiro().getJudgement().getMuobi().toNumber()));
 					}
 				});
 	}
@@ -171,21 +162,44 @@ public class ShobuIppon extends Activity implements CompetitionListener{
 	private void updateLayout() {
 		Display display = getWindowManager().getDefaultDisplay();
 		
-		LayoutParams linLayParams = new LayoutParams(display.getWidth()/2, display.getHeight()-heightOfStableElements());
+		int margin = 2*2;
+		int height  = display.getHeight();
 		
-		((LinearLayout) findViewById(R.id.RedLayout)).setLayoutParams(linLayParams);
-		((LinearLayout) findViewById(R.id.WihteLayout)).setLayoutParams(linLayParams);
+		LayoutParams params = new LayoutParams(display.getWidth(), height/7);
 		
-		linLayParams = new LayoutParams(display.getWidth()/4, LayoutParams.WRAP_CONTENT);
+		getClock().setLayoutParams(params);
+		getBtStart().setLayoutParams(params);
+		
+		params = new LayoutParams(display.getWidth()/2, height);
+		
+		((LinearLayout) findViewById(R.id.RedLayout)).setLayoutParams(params);
+		((LinearLayout) findViewById(R.id.WihteLayout)).setLayoutParams(params);
+		
+		params = new LayoutParams(display.getWidth()/4, 3*(height/7));
 		
 		LinearLayout layoutAkaJudging = ((LinearLayout) findViewById(R.id.layoutAkaJudging));
-		layoutAkaJudging.setLayoutParams(linLayParams);
-		((LinearLayout) findViewById(R.id.layoutShiroJudging)).setLayoutParams(linLayParams);
+		layoutAkaJudging.setLayoutParams(params);
+		((LinearLayout) findViewById(R.id.layoutShiroJudging)).setLayoutParams(params);
 		
-		linLayParams = new LayoutParams(display.getWidth()/4, LayoutParams.WRAP_CONTENT);
+		((LinearLayout) findViewById(R.id.layoutAkaScore)).setLayoutParams(params);
+		((LinearLayout) findViewById(R.id.layoutShiroScore)).setLayoutParams(params);
 		
-		((LinearLayout) findViewById(R.id.layoutAkaScore)).setLayoutParams(linLayParams);
-		((LinearLayout) findViewById(R.id.layoutShiroScore)).setLayoutParams(linLayParams);
+		params = new LayoutParams((display.getWidth()/4)-margin, (3*(height/7))-margin);
+		params.setMargins(2, 2, 2, 2);
+		
+		getBtScoreAka().setLayoutParams(params);
+		getBtScoreShiro().setLayoutParams(params);
+		
+		params = new LayoutParams((display.getWidth()/4)-margin, (height/7)-margin);
+		params.setMargins(2, 2, 2, 2);
+		
+		getBtAtenaiAka().setLayoutParams(params);
+		getBtAtenaiShiro().setLayoutParams(params);
+		getBtMubobiAka().setLayoutParams(params);
+		getBtMubobiShiro().setLayoutParams(params);
+		getBtJogaiAka().setLayoutParams(params);
+		getBtJogaiShiro().setLayoutParams(params);
+		
 	}
 
 
@@ -194,7 +208,7 @@ public class ShobuIppon extends Activity implements CompetitionListener{
 		return (Button) findViewById(R.id.ButtonScoreAka);
 	}
 	
-	private Button getBtMuobiAka() {
+	private Button getBtMubobiAka() {
 		return ((Button) findViewById(R.id.ButtonMuobiAka));
 	}
 
@@ -210,7 +224,7 @@ public class ShobuIppon extends Activity implements CompetitionListener{
 		return (Button) findViewById(R.id.ButtonScoreshiro);
 	}
 	
-	private Button getBtMuobiShiro() {
+	private Button getBtMubobiShiro() {
 		return ((Button) findViewById(R.id.ButtonMuobiShiro));
 	}
 
@@ -222,10 +236,12 @@ public class ShobuIppon extends Activity implements CompetitionListener{
 		return ((Button) findViewById(R.id.ButtonAtenaiAshiro));
 	}
 	
-	private int heightOfStableElements() {
-		return ((TextView) findViewById(R.id.headline)).getHeight() + getClock().getHeight() + getBtStart().getHeight();
-		
-	}
+//	private int heightOfStableElements() {
+//		return 2*((TextView) findViewById(R.id.headline)).getHeight() ;
+////		+ getClock().getHeight() ;
+//		//+ getBtStart().getHeight();
+//		
+//	}
 
 	private Button getBtStart() {
 		return (Button) findViewById(R.id.buttonStartStop);
@@ -316,8 +332,8 @@ public class ShobuIppon extends Activity implements CompetitionListener{
 		getBtAtenaiAka().setText(R.string.atenaiAka);
 		getBtAtenaiShiro().setText(R.string.atenaiShiro);
 		
-		getBtMuobiAka().setText(R.string.muobiAka);
-		getBtMuobiShiro().setText(R.string.muobiShiro);
+		getBtMubobiAka().setText(R.string.muobiAka);
+		getBtMubobiShiro().setText(R.string.muobiShiro);
 		
 		getBtJogaiAka().setText(R.string.jogaiAka);
 		getBtJogaiShiro().setText(R.string.jogaiShiro);

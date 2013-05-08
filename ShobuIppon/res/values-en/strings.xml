@@ -22,13 +22,13 @@
 	<string name="shiroTitle">Shiro</string>
 	<string name="compFirstname">Firstname:</string>
     <string name="compLastname">Lastname:</string>
-    <string name="startMatch">Starten</string>
+    <string name="startMatch">Start</string>
     <string name="judegment">Hantei</string>
     <string name="hikewake">Hikiwake</string>
     <string name="winner"></string>
-    <string name="nextMatch">Nächster Kampf</string>	
+    <string name="nextMatch">Next fight</string>	
     <string name="finale">Finale</string>
-    <string name="evaluation">Vorrunde</string>
+    <string name="evaluation">Typical</string>
     <string name="chronometer_initial_format">Initial format:<xliff:g id="initial-format">%</xliff:g></string>
 	
 	
