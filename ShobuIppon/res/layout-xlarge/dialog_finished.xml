@@ -18,6 +18,6 @@
         android:id="@+id/buttonNextMatch"
         style="@style/TextNormalXL"
         android:text="@string/nextMatch"
-        android:background="@drawable/blue_btn"/>
+        android:background="@drawable/white_btn"/>
     
 </LinearLayout>

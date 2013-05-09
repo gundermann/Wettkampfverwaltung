@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:orientation="vertical" >
     
     <LinearLayout 
@@ -95,12 +96,12 @@
         android:text="@string/finale"
     	android:textOn="@string/finale"
  		android:textOff="@string/evaluation"
-        android:background="@drawable/blue_btn"
+        android:background="@drawable/white_btn"
         style="@style/TextBlack" />
     
     <Button 
             android:id="@+id/btAddCompetitors"
-            android:background="@drawable/blue_btn"
+            android:background="@drawable/white_btn"
             style="@style/TextBlack"
             android:text="@string/startMatch"
             android:layout_width="fill_parent"/>

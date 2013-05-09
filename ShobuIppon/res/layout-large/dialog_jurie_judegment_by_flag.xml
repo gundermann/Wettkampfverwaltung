@@ -29,14 +29,14 @@
             android:id="@+id/btshiroWins"
             style="@style/TextNormalL"
             android:layout_width="match_parent"
-            android:background="@drawable/black_btn"
+            android:background="@drawable/white_btn"
             android:text="@string/shiroTitle" />
         
     </GridLayout>
     
     <Button 
             android:id="@+id/btHikewake"
-            android:background="@drawable/blue_btn"
+            android:background="@drawable/white_btn"
             style="@style/TextNormalL"
             android:text="@string/hikewake"
             android:layout_height="wrap_content"

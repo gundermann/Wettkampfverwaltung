@@ -20,7 +20,7 @@
     <Button 
         android:id="@+id/buttonStartStop"
          android:text="@string/start"
-         android:background="@drawable/blue_btn"
+         android:background="@drawable/white_btn"
         style="@style/TextNormalXL"
         />
     
@@ -32,7 +32,7 @@
         
         <LinearLayout 
             android:id="@+id/RedLayout"
-            android:background="@drawable/red_layout"
+            android:background="@drawable/white_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -128,7 +128,7 @@
                     style="@style/TextBigXL"
                     android:layout_height="fill_parent"
                     android:text="@string/scoreShiro"
-                    android:background="@drawable/black_btn"/>
+                    android:background="@drawable/white_btn"/>
                 
                  
             </LinearLayout>
@@ -144,19 +144,19 @@
                     android:id="@+id/ButtonJogaiShiro"
                     style="@style/TextNormalXL"
                     android:text="@string/jogaiShiro"
-                    android:background="@drawable/black_btn"/>
+                    android:background="@drawable/white_btn"/>
                 
                 <Button 
                     android:id="@+id/ButtonAtenaiAshiro"
                     style="@style/TextNormalXL"
                     android:text="@string/atenaiShiro"
-                    android:background="@drawable/black_btn"/>
+                    android:background="@drawable/white_btn"/>
                 
                 <Button 
                     android:id="@+id/ButtonMuobiShiro"
                     style="@style/TextNormalXL"
                     android:text="@string/muobiShiro"
-                    android:background="@drawable/black_btn"/>
+                    android:background="@drawable/white_btn"/>
                 
             </LinearLayout>
             
