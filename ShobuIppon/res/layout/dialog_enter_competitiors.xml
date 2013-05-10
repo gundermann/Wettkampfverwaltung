@@ -98,10 +98,10 @@
  		android:textOff="@string/evaluation"
         android:background="@drawable/white_btn_clean"
         style="@style/TextBlack" 
-    	android:layout_marginLeft="5sp"
-    	android:layout_marginTop="5sp"
+    	android:layout_marginLeft="10sp"
+    	android:layout_marginTop="10sp"
     	android:layout_marginRight="5sp"
-    	android:layout_marginBottom="5sp"
+    	android:layout_marginBottom="10sp"
     	  	/>
     
     <Button 
@@ -109,7 +109,11 @@
             android:background="@drawable/white_btn_clean"
             style="@style/TextBlack"
             android:text="@string/startMatch"
-            android:layout_width="fill_parent"/>
+            android:layout_width="fill_parent"
+            android:layout_marginLeft="5sp"
+    		android:layout_marginTop="10sp"
+    		android:layout_marginRight="10sp"
+    		android:layout_marginBottom="10sp"/>
     </LinearLayout>
 
 </LinearLayout>
