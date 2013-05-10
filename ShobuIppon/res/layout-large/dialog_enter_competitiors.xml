@@ -96,12 +96,12 @@
         android:text="@string/finale"
     	android:textOn="@string/finale"
  		android:textOff="@string/evaluation"
-        android:background="@drawable/white_btn"
+        android:background="@drawable/white_btn_clean"
         style="@style/TextBlackL" />
     
     <Button 
             android:id="@+id/btAddCompetitors"
-            android:background="@drawable/white_btn"
+            android:background="@drawable/white_btn_clean"
             style="@style/TextBlackL"
             android:text="@string/startMatch"
             android:layout_width="fill_parent"/>

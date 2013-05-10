@@ -36,7 +36,7 @@
     
     <Button 
             android:id="@+id/btHikewake"
-            android:background="@drawable/white_btn"
+            android:background="@drawable/white_btn_clean"
             style="@style/TextNormal"
             android:text="@string/hikewake"
             android:layout_height="wrap_content"

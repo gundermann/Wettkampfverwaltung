@@ -20,7 +20,7 @@
     <Button 
         android:id="@+id/buttonStartStop"
          android:text="@string/start"
-         android:background="@drawable/white_btn"
+         android:background="@drawable/white_btn_clean"
         style="@style/TextNormal"
         />
     
@@ -32,7 +32,7 @@
         
         <LinearLayout 
             android:id="@+id/RedLayout"
-            android:background="@drawable/white_layout"
+            android:background="@color/background"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -98,7 +98,7 @@
         
         
         <LinearLayout  android:id="@+id/WihteLayout"
-            android:background="@drawable/white_layout"
+            android:background="@color/background"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
