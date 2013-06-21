@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:background="@color/background">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/shobuipponSetting"
+            android:id="@+id/textView2" android:layout_gravity="left|center_vertical" style="@style/TextBlackXL"/>
+    <TabHost
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" android:id="@+id/tabHost" android:layout_marginBottom="10dp">
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+            <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+            </TabWidget>
+            <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+                <LinearLayout
+                        android:id="@+id/tab1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" android:orientation="vertical">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/eval"
+                            android:id="@+id/textView" android:layout_gravity="left|center_vertical"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="@string/time"
+                            android:id="@+id/textView5" android:layout_gravity="left|center_vertical"
+                            style="@style/TextBlack"/>
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:layout_gravity="center_horizontal">
+                        <NumberPicker
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/numberPicker2"/>
+                        <NumberPicker
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/numberPicker3"/>
+                    </LinearLayout>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="@string/score"
+                            android:id="@+id/textView4" android:layout_gravity="left|center_vertical"
+                            style="@style/TextBlack"/>
+                    <NumberPicker
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/numberPicker" android:layout_gravity="center_horizontal"/>
+                </LinearLayout>
+                <LinearLayout
+                        android:id="@+id/tab2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                              android:textAppearance="?android:attr/textAppearanceSmall" android:text="@string/time"
+                              android:id="@+id/textView3" android:layout_gravity="left|center_vertical"/>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                  android:layout_gravity="center_horizontal" android:id="@+id/linearLayout">
+                        <NumberPicker android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                      android:id="@+id/numberPicker4"/>
+                        <NumberPicker android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                      android:id="@+id/numberPicker5"/>
+                    </LinearLayout>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                              android:textAppearance="?android:attr/textAppearanceSmall" android:text="@string/score"
+                              android:id="@+id/textView6" android:layout_gravity="left|center_vertical"/>
+                    <NumberPicker android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                  android:id="@+id/numberPicker6" android:layout_gravity="center_horizontal"/>
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/apply"
+            android:id="@+id/button" android:layout_gravity="left|center_vertical" style="@style/TextNormal"
+            android:clickable="false" android:background="@drawable/white_btn_clean" android:singleLine="false"/>
+</LinearLayout>
