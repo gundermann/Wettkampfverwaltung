@@ -1,6 +1,7 @@
 package com.comphel.jiyuippon.business;
 
-import com.comphel.jiyuippon.definition.CompetitorNameInCompetition;
+import com.comphel.common.business.Stopwatch;
+import com.comphel.common.definition.CompetitorNameInCompetition;
 import com.comphel.jiyuippon.definition.Config;
 
 public class Match extends Thread{

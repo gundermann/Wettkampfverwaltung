@@ -1,8 +1,9 @@
 package com.comphel.jiyuippon.business;
 
-import com.comphel.jiyuippon.definition.Graduierung;
+import com.comphel.common.definition.Competitor;
+import com.comphel.common.definition.Graduierung;
 
-public class KumiteCompetitor extends Competitor{
+public class KumiteCompetitor extends Competitor {
 
 	private Judgements judgement;
 	

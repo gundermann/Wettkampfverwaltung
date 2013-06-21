@@ -4,9 +4,8 @@ package com.comphel.jiyuippon;
 import com.comphel.jiyuippon.business.CompetitionListener;
 import com.comphel.jiyuippon.business.KumiteCompetitor;
 import com.comphel.jiyuippon.business.Match;
-import com.comphel.jiyuippon.business.Stopwatch;
-import com.comphel.jiyuippon.definition.CompetitorNameInCompetition;
-import com.comphel.jiyuippon.R;
+import com.comphel.common.business.Stopwatch;
+import com.comphel.common.definition.CompetitorNameInCompetition;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -24,11 +23,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;
 
+import static com.comphel.jiyuippon.R.id.RedLayout;
+
 public class ShobuIppon extends Activity implements CompetitionListener{
 	
 	Match match;
 	
-	Dialog currentDialog;
+	private Dialog currentDialog;
 
 	private Builder dialogBuilder;
 
@@ -172,7 +173,7 @@ public class ShobuIppon extends Activity implements CompetitionListener{
 		
 		params = new LayoutParams(display.getWidth()/2, height);
 		
-		((LinearLayout) findViewById(R.id.RedLayout)).setLayoutParams(params);
+		((LinearLayout) findViewById(RedLayout)).setLayoutParams(params);
 		((LinearLayout) findViewById(R.id.WihteLayout)).setLayoutParams(params);
 		
 		params = new LayoutParams(display.getWidth()/4, 3*(height/7));

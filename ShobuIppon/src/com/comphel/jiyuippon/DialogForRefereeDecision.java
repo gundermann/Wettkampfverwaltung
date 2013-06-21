@@ -1,8 +1,5 @@
 package com.comphel.jiyuippon;
 
-import com.comphel.jiyuippon.definition.CompetitorNameInCompetition;
-import com.comphel.jiyuippon.R;
-
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
@@ -10,6 +7,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import com.comphel.common.definition.CompetitorNameInCompetition;
 
 public class DialogForRefereeDecision {
 	
