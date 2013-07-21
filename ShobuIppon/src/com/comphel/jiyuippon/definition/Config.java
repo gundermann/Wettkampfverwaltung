@@ -22,8 +22,11 @@ import org.w3c.dom.NodeList;
 
 import android.os.Environment;
 
+import com.comphel.common.definition.ConfigNotCompleteException;
+
 public class Config {
 
+    //TODO Rulesklassen nutzen
 	private long timeleft;
 	
 	private int wazariToWin;

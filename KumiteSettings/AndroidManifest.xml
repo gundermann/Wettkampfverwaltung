@@ -5,7 +5,7 @@
           android:versionName="1.0" >
 
     <uses-sdk
-            android:minSdkVersion="8"
+            android:minSdkVersion="11"
             android:targetSdkVersion="17" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -14,6 +14,9 @@
             android:icon="@drawable/icon"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" >
+        <activity android:name=".KumiteSetupTab1"/>
+        <activity android:name=".KumiteSetupTab2"/>
+        <activity android:name=".KumiteDefaultTab"/>
         <activity
                 android:name="com.comphel.kumitesettings.KumiteSettingsMain"
                 android:configChanges="orientation|keyboardHidden|screenSize"
