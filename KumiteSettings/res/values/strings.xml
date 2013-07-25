@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kumite Settings</string>
+    <string name="shobuipponSetting">Shobu Ippon</string>
+    <string name="eval">Evaluation</string>
+    <string name="finals">Finals</string>
+    <string name="time">Time:</string>
+    <string name="score">Waza-ari:</string>
+    <string name="change">New Switch</string>
+    <string name="apply">Apply</string>
+    <string name="jogai">Jogai:</string>
+    <string name="atenai">Atenai:</string>
+    <string name="mubobi">Mubobi:</string>
+    <string name="beginConfig">Begin Configuration</string>
+</resources>

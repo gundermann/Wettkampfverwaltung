@@ -10,7 +10,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/shobuipponSetting"
-            android:id="@+id/textView2" android:layout_gravity="left|center_vertical" style="@style/TextBlackXL"/>
+            android:id="@+id/textView2" android:layout_gravity="left|center_vertical" style="@style/TextBigL"/>
     <TabHost xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@android:id/tabhost"
             android:layout_width="fill_parent"
@@ -40,7 +40,7 @@
             android:enabled="false"
             android:src="@android:drawable/ic_media_ff"
             android:id="@+id/navButton" android:layout_gravity="left|center_vertical" style="@style/TextNormal"
-            android:clickable="false" android:background="@drawable/white_btn_clean" android:singleLine="false"/>
+            android:background="@drawable/white_btn_clean" android:singleLine="false"/>
     <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

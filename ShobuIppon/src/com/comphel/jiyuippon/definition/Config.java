@@ -26,6 +26,7 @@ import com.comphel.common.definition.ConfigNotCompleteException;
 
 public class Config {
 
+    //TODO Loading- und SavingTool nutzen
     //TODO Rulesklassen nutzen
 	private long timeleft;
 	

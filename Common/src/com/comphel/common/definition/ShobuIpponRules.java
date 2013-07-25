@@ -7,6 +7,8 @@ abstract public class ShobuIpponRules {
 
     private long timeleft;
 
+    private boolean inConfiguration = false;
+
     private int wazariToWin;
 
     private int jogaiToLose;
@@ -29,6 +31,14 @@ abstract public class ShobuIpponRules {
 
     public void setJogaiToLose(int jogaiToLose) {
         this.jogaiToLose = jogaiToLose;
+    }
+
+    public boolean isInConfiguration() {
+        return inConfiguration;
+    }
+
+    public void setInConfiguration(boolean inConfiguration) {
+        this.inConfiguration = inConfiguration;
     }
 
     public int getWazariToWin() {
