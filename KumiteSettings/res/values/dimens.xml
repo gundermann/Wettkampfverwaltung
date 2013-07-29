@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="setupMenuHeightDefault">345dp</dimen>
-    <dimen name="setupMenuHeight">500dp</dimen>
+    <dimen name="setupMenuHeightDefault">300dp</dimen>
 </resources>

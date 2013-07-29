@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.comphel.common.definition.ShobuIpponFinalRules;
 import com.comphel.common.definition.ShobuIpponNormalRules;
+import com.comphel.common.definition.ShobuIpponRules;
 import com.comphel.kumitesettings.business.KumiteSettingLoadingTool;
 import com.comphel.kumitesettings.business.KumiteSettingSavingTool;
 
@@ -21,9 +22,10 @@ import com.comphel.kumitesettings.business.KumiteSettingSavingTool;
  */
 public class KumiteSettingsMain extends TabActivity{
 
-    ShobuIpponNormalRules normalRules;
-    ShobuIpponFinalRules finalRules;
+    static ShobuIpponNormalRules normalRules;
+    static ShobuIpponFinalRules finalRules;
     int setupPage = 0;
+    static int currentTab = 0;
     Button btSetupConfiguration;
     ImageButton navButton;
 
@@ -33,8 +35,7 @@ public class KumiteSettingsMain extends TabActivity{
 
         initTools();
 
-        updateTabs(KumiteDefaultTab.class, KumiteDefaultTab.class);
-
+        updateTabs(NormalKumiteDefaultTab.class, FinalKumiteDefaultTab.class);
 
         navButton = (ImageButton) findViewById(R.id.navButton);
         navButton.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +53,10 @@ public class KumiteSettingsMain extends TabActivity{
                 handleMainbutton();
             }
         });
+    }
+
+    public void onChangeTab(){
+        currentTab = getTabHost().getCurrentTab();
     }
 
     private void handleNavButton() {
@@ -86,23 +91,26 @@ public class KumiteSettingsMain extends TabActivity{
     private void updateTabs(Class<? extends Activity> class1, Class<? extends Activity> class2) {
         TabHost tabHost = getTabHost();
 
-        int currentTab = tabHost.getCurrentTab();
+        currentTab = tabHost.getCurrentTab();
 
         tabHost.clearAllTabs();
         if(class1 != null){
         Intent intentEvaluation = new Intent().setClass(this, class1 );
+            intentEvaluation.addFlags(0);
         TabSpec tabSpecEvaluation = tabHost.newTabSpec("Evaluation").setIndicator("Evaluation").setContent(intentEvaluation);
         tabHost.addTab(tabSpecEvaluation);
         }
 
         if(class2 != null){
         Intent intentFinals = new Intent().setClass(this, class2);
+            intentFinals.addFlags(1);
         TabSpec tabSpecFinals = tabHost.newTabSpec("Finals").setIndicator("Finals").setContent(intentFinals);
         tabHost.addTab(tabSpecFinals);
         }
 
         tabHost.setCurrentTab(currentTab);
     }
+
 
     private void handleMainbutton() {
         if(setupPage != 0){
@@ -172,7 +180,7 @@ public class KumiteSettingsMain extends TabActivity{
         navButton.setEnabled(false);
         navButton.setClickable(false);
         saveSetup();
-        updateTabs(KumiteDefaultTab.class, KumiteDefaultTab.class);
+        updateTabs(NormalKumiteDefaultTab.class, FinalKumiteDefaultTab.class);
     }
 
     private void initTools() {

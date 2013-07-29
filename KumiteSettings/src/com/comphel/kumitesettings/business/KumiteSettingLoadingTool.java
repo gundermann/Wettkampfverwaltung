@@ -55,11 +55,20 @@ public class KumiteSettingLoadingTool  {
     private static void readElement(Element nNode, ShobuIpponRules rules) throws ConfigNotCompleteException{
         Element eElement = (Element) nNode;
 
-            rules.setAtenaiToLose(Integer.parseInt(eElement.getElementsByTagName("atenai").item(0).toString()));
-            rules.setJogaiToLose(Integer.parseInt(eElement.getElementsByTagName("jogai").item(0).toString()));
-            rules.setMubobiToLose(Integer.parseInt(eElement.getElementsByTagName("mubobi").item(0).toString()));
-            rules.setTimeleft(Integer.parseInt(eElement.getElementsByTagName("time").item(0).toString()));
-            rules.setWazariToWin(Integer.parseInt(eElement.getElementsByTagName("wazari").item(0).toString()));
+        Node atenaiNode = eElement.getElementsByTagName("atenai").item(0);
+        Node jogaiNode = eElement.getElementsByTagName("jogai").item(0);
+        Node mubobiNode = eElement.getElementsByTagName("mubobi").item(0);
+        Node timeNode = eElement.getElementsByTagName("time").item(0);
+        Node wazariNode = eElement.getElementsByTagName("wazari").item(0);
+        if(atenaiNode == null || jogaiNode == null || mubobiNode == null || timeNode == null || wazariNode == null){
+            throw new ConfigNotCompleteException();
+        }
+
+        rules.setAtenaiToLose(Integer.parseInt(atenaiNode.getTextContent()));
+        rules.setJogaiToLose(Integer.parseInt(jogaiNode.getTextContent()));
+        rules.setMubobiToLose(Integer.parseInt(mubobiNode.getTextContent()));
+        rules.setTimeleft(Integer.parseInt(timeNode.getTextContent()));
+        rules.setWazariToWin(Integer.parseInt(wazariNode.getTextContent()));
 
     }
 

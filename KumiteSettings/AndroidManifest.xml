@@ -17,6 +17,8 @@
         <activity android:name=".KumiteSetupTab1"/>
         <activity android:name=".KumiteSetupTab2"/>
         <activity android:name=".KumiteDefaultTab"/>
+        <activity android:name=".NormalKumiteDefaultTab"/>
+        <activity android:name=".FinalKumiteDefaultTab"/>
         <activity
                 android:name="com.comphel.kumitesettings.KumiteSettingsMain"
                 android:configChanges="orientation|keyboardHidden|screenSize"
