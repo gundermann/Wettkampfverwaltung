@@ -1,9 +1,10 @@
 package com.comphel.jiyuippon;
 
 
-import com.comphel.jiyuippon.business.CompetitionListener;
-import com.comphel.jiyuippon.business.KumiteCompetitor;
-import com.comphel.jiyuippon.business.Match;
+
+import business.CompetitionListener;
+import business.KumiteCompetitor;
+import business.Match;
 import com.comphel.common.business.Stopwatch;
 import com.comphel.common.definition.CompetitorNameInCompetition;
 
@@ -25,7 +26,7 @@ import android.widget.LinearLayout.LayoutParams;
 
 import static com.comphel.jiyuippon.R.id.RedLayout;
 
-public class ShobuIppon extends Activity implements CompetitionListener{
+public class ShobuIppon extends Activity implements CompetitionListener {
 	
 	Match match;
 	

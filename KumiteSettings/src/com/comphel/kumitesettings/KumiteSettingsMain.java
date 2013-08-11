@@ -61,29 +61,28 @@ public class KumiteSettingsMain extends TabActivity{
 
     private void handleNavButton() {
         TabHost tabHost = getTabHost();
-        saveContent();
         if(finalRules.isInConfiguration()){
         if(setupPage == 1){
             setupPage = 2;
             navButton.setImageResource(android.R.drawable.ic_media_rew);
-            updateTabs(null, KumiteSetupTab2.class);
+            updateTabs(null, FinalKumiteSetupTab2.class);
         }
         else if ( setupPage == 2 ) {
             setupPage = 1;
             navButton.setImageResource(android.R.drawable.ic_media_ff);
-            updateTabs(null, KumiteSetupTab1.class);
+            updateTabs(null, FinalKumiteSetupTab1.class);
         }
         }
         else if(normalRules.isInConfiguration()){
             if(setupPage == 1){
                 setupPage = 2;
                 navButton.setImageResource(android.R.drawable.ic_media_rew);
-                updateTabs(KumiteSetupTab2.class, null);
+                updateTabs(NormalKumiteSetupTab2.class, null);
             }
             else if (setupPage == 2){
                 setupPage = 1;
                 navButton.setImageResource(android.R.drawable.ic_media_ff);
-                updateTabs(KumiteSetupTab1.class, null);
+                updateTabs(NormalKumiteSetupTab1.class, null);
             }
         }
     }
@@ -127,32 +126,6 @@ public class KumiteSettingsMain extends TabActivity{
         }
     }
 
-    private void saveContent() {
-        if(setupPage != 0){
-            View currentView = getTabHost().getCurrentTabView();
-            if(getTabHost().getCurrentTab() == 0 && getTabHost().getCurrentTabView().equals(findViewById(R.layout.setup1_view)) ){
-                normalRules.setTimeleft(Long.parseLong(((TextView) currentView.findViewById(R.id.tvSettedTime)).getText().toString()));
-                normalRules.setWazariToWin(Integer.parseInt(((TextView) currentView.findViewById(R.id.tvSettedWazari)).getText().toString()));
-            }
-            else if(getTabHost().getCurrentTab() == 0 && getTabHost().getCurrentTabView().equals(findViewById(R.layout.setup2_view))){
-                normalRules.setJogaiToLose(Integer.parseInt(((TextView) currentView.findViewById(R.id.tvSettedJogai)).getText().toString()));
-                normalRules.setAtenaiToLose(Integer.parseInt(((TextView) currentView.findViewById(R.id.tvSettedAtenai)).getText().toString()));
-                normalRules.setMubobiToLose(Integer.parseInt(((TextView) currentView.findViewById(R.id.tvSettedMubobi)).getText().toString()));
-
-            }
-            else if(getTabHost().getCurrentTab() == 1 && getTabHost().getCurrentTabView().equals(findViewById(R.layout.setup1_view))){
-                finalRules.setTimeleft(Long.parseLong(((TextView) currentView.findViewById(R.id.tvSettedTime)).getText().toString()));
-                finalRules.setWazariToWin(Integer.parseInt(((TextView) currentView.findViewById(R.id.tvSettedWazari)).getText().toString()));
-            }
-            else if(getTabHost().getCurrentTab() == 1 && getTabHost().getCurrentTabView().equals(findViewById(R.layout.setup2_view))){
-                finalRules.setJogaiToLose(Integer.parseInt(((TextView) currentView.findViewById(R.id.tvSettedJogai)).getText().toString()));
-                finalRules.setAtenaiToLose(Integer.parseInt(((TextView) currentView.findViewById(R.id.tvSettedAtenai)).getText().toString()));
-                finalRules.setMubobiToLose(Integer.parseInt(((TextView) currentView.findViewById(R.id.tvSettedMubobi)).getText().toString()));
-
-            }
-        }
-    }
-
     private void updateCurrentTabIntoSetupPhase() {
         getTabHost().setClickable(false);
         if(getTabHost().getCurrentTab() == 0){
@@ -163,10 +136,10 @@ public class KumiteSettingsMain extends TabActivity{
         navButton.setEnabled(true);
         navButton.setClickable(true);
         if(getTabHost().getCurrentTab() == 1){
-            updateTabs(null, KumiteSetupTab1.class);
+            updateTabs(null, FinalKumiteSetupTab1.class);
         }
         else{
-            updateTabs(KumiteSetupTab1.class, null);
+            updateTabs(NormalKumiteSetupTab1.class, null);
         }
     }
 
@@ -179,17 +152,12 @@ public class KumiteSettingsMain extends TabActivity{
         }
         navButton.setEnabled(false);
         navButton.setClickable(false);
-        saveSetup();
         updateTabs(NormalKumiteDefaultTab.class, FinalKumiteDefaultTab.class);
     }
 
     private void initTools() {
         normalRules = KumiteSettingLoadingTool.getNormalRules();
         finalRules = KumiteSettingLoadingTool.getFinalRules();
-    }
-
-    private void saveSetup(){
-        KumiteSettingSavingTool.save(normalRules, finalRules);
     }
 
 }

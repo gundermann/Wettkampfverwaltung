@@ -13,10 +13,8 @@ import com.comphel.kumitesettings.business.KumiteSettingLoadingTool;
 /**
  * Created by Admin on 20.07.13.
  */
-abstract public class KumiteDefaultTab extends Activity {
+abstract public class KumiteDefaultTab extends KumiteTab {
 
-
-    public ShobuIpponRules rules;
     private TextView tvTime;
     private TextView tvWazari;
     private TextView tvJogai;
@@ -27,8 +25,6 @@ abstract public class KumiteDefaultTab extends Activity {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.default_tab);
 
-        initTools();
-
         tvTime = (TextView) findViewById(R.id.tvSettedTime);
         tvWazari = (TextView) findViewById(R.id.tvSettedWazari);
         tvJogai = (TextView) findViewById(R.id.tvSettedJogai);
@@ -37,8 +33,6 @@ abstract public class KumiteDefaultTab extends Activity {
 
         updateRules();
     }
-
-    abstract public void initTools();
 
     public void updateRules() {
         getTvTime().setText(String.valueOf(rules.getTimeleft()/1000)+" sec");

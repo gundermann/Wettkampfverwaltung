@@ -35,7 +35,8 @@
         <NumberPicker
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/time1"/>
+                    android:id="@+id/time1"
+                />
             <NumberPicker
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

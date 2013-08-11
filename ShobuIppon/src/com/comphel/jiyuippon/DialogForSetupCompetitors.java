@@ -1,20 +1,16 @@
 package com.comphel.jiyuippon;
 
-import com.comphel.jiyuippon.business.KumiteCompetitor;
-import com.comphel.jiyuippon.R;
-
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
-import android.view.Display;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ToggleButton;
-import android.widget.LinearLayout.LayoutParams;
+import business.KumiteCompetitor;
+
 
 class DialogForSetupCompetitors{
 	

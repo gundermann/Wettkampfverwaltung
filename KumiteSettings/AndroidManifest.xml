@@ -14,10 +14,11 @@
             android:icon="@drawable/icon"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" >
-        <activity android:name=".KumiteSetupTab1"/>
-        <activity android:name=".KumiteSetupTab2"/>
-        <activity android:name=".KumiteDefaultTab"/>
+        <activity android:name=".NormalKumiteSetupTab1"/>
+        <activity android:name=".NormalKumiteSetupTab2"/>
         <activity android:name=".NormalKumiteDefaultTab"/>
+        <activity android:name=".FinalKumiteSetupTab1"/>
+        <activity android:name=".FinalKumiteSetupTab2"/>
         <activity android:name=".FinalKumiteDefaultTab"/>
         <activity
                 android:name="com.comphel.kumitesettings.KumiteSettingsMain"

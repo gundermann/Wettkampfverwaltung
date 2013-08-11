@@ -27,12 +27,15 @@ import javax.xml.parsers.ParserConfigurationException;
  * Created by Admin on 20.07.13.
  */
 public class KumiteSettingLoadingTool  {
-    private static ShobuIpponFinalRules finalRules = new ShobuIpponFinalRules();
-    private static ShobuIpponNormalRules normalRules = new ShobuIpponNormalRules();
+    private static ShobuIpponFinalRules finalRules;
+    private static ShobuIpponNormalRules normalRules;
     private static String configPath = Environment.getExternalStorageDirectory() + "/Comphel/ShobuIppon/";
     private static String config = "config.xml";
 
     private static void load() throws ParserConfigurationException, ConfigNotCompleteException, IOException, SAXException {
+        finalRules = new ShobuIpponFinalRules();
+        normalRules = new ShobuIpponNormalRules();
+
             File fXmlFile = new File(configPath+config);
 
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -80,6 +83,7 @@ public class KumiteSettingLoadingTool  {
     }
 
     public static ShobuIpponFinalRules getFinalRules() {
+        if(finalRules == null){
         try {
             load();
         } catch (ParserConfigurationException e) {
@@ -91,10 +95,12 @@ public class KumiteSettingLoadingTool  {
         } catch (SAXException e) {
             e.printStackTrace();
         }
+        }
         return finalRules;
     }
 
     public static ShobuIpponNormalRules getNormalRules() {
+        if(normalRules == null){
         try {
             load();
         } catch (ParserConfigurationException e) {
@@ -105,6 +111,7 @@ public class KumiteSettingLoadingTool  {
             e.printStackTrace();
         } catch (SAXException e) {
             e.printStackTrace();
+        }
         }
         return normalRules;
     }

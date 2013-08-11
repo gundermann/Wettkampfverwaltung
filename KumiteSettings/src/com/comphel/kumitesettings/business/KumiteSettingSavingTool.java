@@ -29,6 +29,16 @@ public class KumiteSettingSavingTool {
     private static String config = "config.xml";
 
 
+    public static void saveNormal(ShobuIpponNormalRules normalRules){
+        ShobuIpponFinalRules finalRules = KumiteSettingLoadingTool.getFinalRules();
+        save(normalRules, finalRules);
+    }
+
+    public static void saveFinal(ShobuIpponFinalRules finalRules){
+        ShobuIpponNormalRules normalRules = KumiteSettingLoadingTool.getNormalRules();
+        save(normalRules, finalRules);
+    }
+
     public static void save(ShobuIpponNormalRules normalRules, ShobuIpponFinalRules finalRules) {
 
         try {
