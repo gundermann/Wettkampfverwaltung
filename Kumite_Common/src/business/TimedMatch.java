@@ -4,7 +4,7 @@ import com.comphel.common.business.Stopwatch;
 import com.comphel.common.definition.CompetitorNameInCompetition;
 import definition.Config;
 
-public class Match extends Thread{
+public class TimedMatch extends Thread{
 
 	CompetitionListener compListener;
 	
@@ -24,7 +24,7 @@ public class Match extends Thread{
 	
 	int round = 1;
 
-	public Match(KumiteCompetitor aka, KumiteCompetitor shiro, Stopwatch clock, CompetitionListener compListener, boolean isFianle){
+	public TimedMatch(KumiteCompetitor aka, KumiteCompetitor shiro, Stopwatch clock, CompetitionListener compListener, boolean isFianle){
 		this.aka = aka;
 		this.shiro = shiro;
 		this.clock = clock;

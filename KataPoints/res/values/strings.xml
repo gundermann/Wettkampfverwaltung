@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name" >Kata Punktesystem</string>
+    <string name="calculate">Berechne</string>
+    <string name="next">Nächster Kämpfer</string>
+    <string name="points">0</string>
+    <string name="inputError">Alle Punktzahlen müssen angegeben sein</string>
+
+</resources>

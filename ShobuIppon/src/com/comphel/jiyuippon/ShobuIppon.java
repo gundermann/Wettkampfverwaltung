@@ -4,7 +4,7 @@ package com.comphel.jiyuippon;
 
 import business.CompetitionListener;
 import business.KumiteCompetitor;
-import business.Match;
+import business.TimedMatch;
 import com.comphel.common.business.Stopwatch;
 import com.comphel.common.definition.CompetitorNameInCompetition;
 
@@ -28,7 +28,7 @@ import static com.comphel.jiyuippon.R.id.RedLayout;
 
 public class ShobuIppon extends Activity implements CompetitionListener {
 	
-	Match match;
+	TimedMatch match;
 	
 	private Dialog currentDialog;
 
@@ -320,7 +320,7 @@ public class ShobuIppon extends Activity implements CompetitionListener {
 	}
 
 	public void createNewMatch(KumiteCompetitor aka, KumiteCompetitor shiro, boolean isFianle) {
-		this.match = new Match(aka, shiro, new Stopwatch(getClock()), this, isFianle );
+		this.match = new TimedMatch(aka, shiro, new Stopwatch(getClock()), this, isFianle );
 	}
 
 	public void initNewMatch() {
